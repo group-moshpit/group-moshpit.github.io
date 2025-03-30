@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff176;
+    text-align: center;
+}
+.cover {
+    background: linear-gradient(to right, #a8eb12, #b2ff59);
+    height: 20vh;
+    width: 100%;
+    position: relative;
+}
+.banner {
+    background: #fff176;
+    height: 60px;
+    width: 100%;
+    position: relative;
+}
+.profile-container {
+    position: relative;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    min-width: 320px;
+    text-align: left;
+    background: white;
+    padding: 0px;
+    border-radius: 0px 0 10px 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: white;
+    padding: 5px;
+    position: absolute;
+    top: -75px;
+    left: 5%;
+}
+.profile-info {
+    padding-left: 15%;
+    margin: 20px;
+    flex-grow: 1;
+}
+.profile-info p {
+    margin: 8px 0;
+    font-size: 18px;
+}
+.level-container {
+    display: flex;
+    align-items: center;
+}
+.level-bar {
+    width: 150px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 5px;
+    margin-left: 10px;
+    position: relative;
+}
+.level-bar::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    background: green;
+    border-radius: 5px;
+}
+.poke-coins {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10%; 
+}
+.poke-coins img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.achievements, .friends {
+    margin-top: 80px;
+    text-align: center;
+}
+.achievement-list{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.friend-list {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.achievement-list img{
+    width: 145px;
+    height: 160px;
+    border-radius: 10px;
+    background: #b2ff59;
+    padding: 20px;
+}
+.friend {
+    text-align: center;
+}   
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    text-align: center;
+    box-shadow: inset 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+.friend-card {
+    background: linear-gradient(to bottom, #FFCB05, #b2ff59);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 200px;
+    margin: 10px;  
+    
+}
+
+.friend-card p{
+    font-size: larger;
+}
+.friend-card1 p{
+    font-size: larger;
+}
+.friend-card1 {
+    background: linear-gradient(to bottom, #FFCB05, #FF5493);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 200px;
+    margin: 10px;  
+}
+.friend-card img {
+    border-radius: 50%;
+}

@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded", function () {
     heroText.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
 });
 
-// for carousel
-document.addEventListener("DOMContentLoaded", function () {
-    const carousel = new bootstrap.Carousel("#promoCarousel", {
-        interval: 4000,
-        pause: "hover",
-        ride: "carousel"
-    });
-});
+// // for carousel
+// document.addEventListener("DOMContentLoaded", function () {
+//     const carousel = new bootstrap.Carousel("#promoCarousel", {
+//         interval: 4000,
+//         pause: "hover",
+//         ride: "carousel"
+//     });
+// });
 
 // for floating bar
 document.addEventListener("DOMContentLoaded", function () {
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Create an image element for the button
     const showSidebarImg = document.createElement("img");
-    showSidebarImg.src = "https://i.ibb.co/GvnSMwwt/final-1.png"; // Replace with your actual image path
+    showSidebarImg.src = "/elements/circle_logo.png"; // Replace with your actual image path
     showSidebarImg.alt = "Open Menu";
     showSidebarImg.style.width = "30px"; // Adjust size as needed
     showSidebarImg.style.height = "auto";
@@ -109,6 +109,115 @@ document.querySelectorAll(".access-bar a").forEach(link => {
         }
     });
 });
+
+
+
+
+
+
+// Carousel functionality with enhanced animations
+const carousel = document.querySelector(".carousel-container");
+const slides = document.querySelectorAll(".carousel-slide");
+const prevButton = document.querySelector(".carousel-nav.prev");
+const nextButton = document.querySelector(".carousel-nav.next");
+const dotsContainer = document.querySelector(".carousel-dots");
+
+let currentSlide = 0;
+let isAnimating = false;
+let autoSlideInterval;
+
+// Initialize navigation arrows
+prevButton.innerHTML = "&#10094;";
+nextButton.innerHTML = "&#10095;";
+
+// Create dot indicators with animation
+slides.forEach((_, index) => {
+  const dot = document.createElement("div");
+  dot.classList.add("carousel-dot");
+  if (index === 0) dot.classList.add("active");
+  dot.addEventListener("click", () => {
+    if (!isAnimating && currentSlide !== index) {
+      goToSlide(index);
+    }
+  });
+  dotsContainer.appendChild(dot);
+});
+
+function updateSlides(direction = "next") {
+  if (isAnimating) return;
+  isAnimating = true;
+
+  const currentSlideElement = slides[currentSlide];
+  currentSlideElement.classList.add("active");
+
+  // Update dots
+  const dots = document.querySelectorAll(".carousel-dot");
+  dots.forEach((dot) => dot.classList.remove("active"));
+  dots[currentSlide].classList.add("active");
+
+  // Reset any slides that might be in transition
+  slides.forEach((slide, index) => {
+    if (index !== currentSlide) {
+      slide.classList.remove("active");
+    }
+  });
+
+  // Wait for transition to complete
+  setTimeout(() => {
+    isAnimating = false;
+  }, 800); // Match this with CSS transition duration
+}
+
+function nextSlide() {
+  if (!isAnimating) {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlides("next");
+  }
+}
+
+function prevSlide() {
+  if (!isAnimating) {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlides("prev");
+  }
+}
+
+function goToSlide(index) {
+  if (!isAnimating && currentSlide !== index) {
+    currentSlide = index;
+    updateSlides(index > currentSlide ? "next" : "prev");
+    resetAutoSlide();
+  }
+}
+
+function resetAutoSlide() {
+  clearInterval(autoSlideInterval);
+  autoSlideInterval = setInterval(nextSlide, 6000); // Slightly longer interval for better UX
+}
+
+// Event listeners with hover pause
+carousel.addEventListener("mouseenter", () => {
+  clearInterval(autoSlideInterval);
+});
+
+carousel.addEventListener("mouseleave", () => {
+  resetAutoSlide();
+});
+
+prevButton.addEventListener("click", () => {
+  prevSlide();
+  resetAutoSlide();
+});
+
+nextButton.addEventListener("click", () => {
+  nextSlide();
+  resetAutoSlide();
+});
+
+
+// Start auto-sliding
+resetAutoSlide();
+updateSlides(); // Initialize first slide
 
 
 
