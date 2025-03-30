@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* Gradient Background */
+body {
+    padding-top: 180px; /* Matches navbar height */
+    background: linear-gradient(to right, #a1db19, #ffffff);
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Bar */
+/* General Reset */
+
+
+/* Adjust body padding to prevent content from being hidden under the navbar */
+
+
+/* Navbar Styles */
+.navbar {
+    background-color: #1b3a75; /* Blue Theme */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1050; /* Ensure it stays above all elements */
+    padding: 15px 50px;
+}
+
+/* Navbar Brand (Logo) */
+.navbar-brand img {
+    width: 120px;
+}
+
+/* Navigation Links */
+.navbar-nav .nav-link {
+    color: rgb(255, 255, 255) !important;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffcb05 !important; /* Pokémon Yellow */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+    .navbar-nav {
+        text-align: center;
+    }
+}
+
+
+/* Menu Button */
+.menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-btn img {
+    width: 35px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu-btn:hover img {
+    transform: scale(1.1);
+}
+
+/* Container Styling */
+.transaction-container {
+    background: rgb(253, 253, 253);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 100px auto; /* Adds margin-top and centers horizontally */
+    max-width: 90%; /* Controls width */
+    width: 80vw; /* Adjust based on preference */
+}
+
+
+/* Button Styling */
+.btn {
+    margin: 5px;
+}
+
+/* Status Colors */
+.status-completed {
+    color: green;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: orange;
+    font-weight: bold;
+}
+
+
+/* Return to Home Button */
+.return-home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Spacing between icon and text */
+    background: #ffcb05; /* Pokémon Yellow */
+    color: #1b3a75; /* Dark Blue */
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.return-home-btn:hover {
+    background: #ffb700; /* Slightly darker yellow */
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .transaction-container {
+        padding: 20px;
+        max-width: 95%;
+    }
+
+    .return-home-btn {
+        width: 100%; /* Full width on smaller screens */
+        text-align: center;
+    }
+}
+
+
+
+/* Footer Section */
+.footer {
+    background: linear-gradient(to right, #2a9d8f, #264653);
+    color: white;
+    padding: 20px 10px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.footer-logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    padding: 10px 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
+}
+
+.footer-info {
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 0 20px;
+}
+
+.bottom-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-language {
+    margin-top: 15px;
+}
+
+.language-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.language-btn:hover {
+    background: #ddd;
+}

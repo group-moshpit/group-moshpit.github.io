@@ -1,0 +1,568 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Adjust body padding to prevent content from being hidden under the navbar */
+body {
+    padding-top: 80px; /* Matches navbar height */
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #1b3a75; /* Blue Theme */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1050; /* Ensure it stays above all elements */
+    padding: 15px 50px;
+}
+
+/* Navbar Brand (Logo) */
+.navbar-brand img {
+    width: 120px;
+}
+
+/* Navigation Links */
+.navbar-nav .nav-link {
+    color: white !important;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffcb05 !important; /* Pokémon Yellow */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+    .navbar-nav {
+        text-align: center;
+    }
+}
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 50px;
+    gap: 40px;
+}
+
+.hero-content {
+    max-width: 500px;
+}
+
+.hero-content h1 {
+    font-size: 2.5em;
+    color: #1b3a75;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hero-content h1:hover {
+    transform: scale(1.05);
+}
+
+.hero-content p {
+    margin: 15px 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn.primary {
+    background-color: #ffcb05;
+    color: #1b3a75;
+    font-weight: bold;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border: 2px solid #1b3a75;
+    color: #1b3a75;
+    margin-left: 10px;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.hero-video {
+    width: 50%;
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-video {
+        width: 100%;
+        height: 250px;
+    }
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* Style for Icon Button */
+.icon-button {
+    background: none; /* Remove default button background */
+    border: none; /* Remove border */
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the Image */
+.icon-button img {
+    width: 30px;  /* Adjust size as needed */
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+.icon-button:hover img {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+
+/* Carousel Section */
+.carousel-section {
+    background: linear-gradient(135deg, #1b3a75, #3c5aa6);
+    padding: 60px 0;
+    color: white;
+}
+
+/* Card-Like Style */
+.carousel-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    margin: auto;
+}
+
+.carousel-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+}
+
+.carousel-image {
+    width: 300px;
+    border-radius: 10px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image:hover {
+    transform: scale(1.05);
+}
+
+.carousel-text {
+    max-width: 500px;
+    color: black;
+}
+
+.carousel-text h2 {
+    font-size: 2rem;
+}
+
+.carousel-text p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.badge {
+    background: #ffcb05;
+    color: #1b3a75;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1b3a75;
+    margin-bottom: 10px;
+}
+
+.buy-btn {
+    background: #ffcb05 !important;
+    color: #1b3a75 !important;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.buy-btn:hover {
+    background: #e5b804 !important;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .carousel-image {
+        width: 90%;
+    }
+
+    .carousel-card {
+        padding: 20px;
+    }
+}
+
+.access-bar {
+    position: sticky;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    
+}
+
+.access-bar a {
+    text-decoration: none;
+    color: #1b3a75;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.access-bar a:hover {
+    color: #ffcb05;
+}
+
+/* Floating Bar */
+.floating-bar a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+
+}
+
+.floating-bar {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    background: rgba(44, 37, 143, 0.4);
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.floating-bar a {
+    display: block;
+    margin: 5px 0;
+}
+
+#toggleSidebar {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #1b3a75;
+}
+
+.hidden {
+    display: none;
+}
+
+#showSidebar {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgb(255, 255, 255, 0.8);
+    border: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+
+
+
+
+/* Feature Section */
+
+.feature-section {
+    background: #ffffff;
+    padding: 60px 0;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Updated Gradient Background */
+.feature-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(135deg, #b7f288, #5cd0ff);
+    border-radius: 15px;
+    padding: 30px;
+    height: 60vh;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+}
+
+.feature-image img {
+    width: 250px;
+    border-radius: 10px;
+}
+
+.feature-content {
+    text-align: left;
+    max-width: 500px;
+}
+
+.feature-badge {
+    background: #ffcb05;
+    color: #1b3a75;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.feature-content h2 {
+    font-size: 2rem;
+    color: #1b3a75;
+    margin: 10px 0;
+}
+
+.feature-content p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.feature-icons {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: #1b3a75;
+}
+
+.feature-icons i {
+    margin-right: 10px;
+}
+
+.feature-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1b3a75;
+    margin-bottom: 10px;
+}
+
+/* Container - Center Align */
+.store-button-container {
+    text-align: center;
+    margin-top: 20px;
+    background-color: none;
+}
+
+/* Store Button - 3D Look */
+.store-btn {
+    background: linear-gradient(145deg, #5cd0ff, #2a9d8f); /* Blue-green gradient */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+    display: inline-block;
+    margin: 20px;
+}
+
+/* Hover Effect - Push Down Slightly */
+.store-btn:hover {
+    background: linear-gradient(145deg, #2a9d8f, #1b6b64);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    color: #b4f0f8;
+    transform: translateY(2px); /* Slight push-down effect */
+}
+
+/* Active (Click) Effect - More Pressed */
+.store-btn:active {
+    transform: translateY(4px);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .feature-card {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+}
+
+
+
+
+
+/* Footer Section */
+.footer {
+    background: linear-gradient(to right, #2a9d8f, #264653);
+    color: white;
+    padding: 20px 10px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.footer-logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    padding: 10px 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
+}
+
+.footer-info {
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 0 20px;
+}
+
+.bottom-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-language {
+    margin-top: 15px;
+}
+
+.language-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.language-btn:hover {
+    background: #ddd;
+}
+
+
+
+
+
+
+
+
