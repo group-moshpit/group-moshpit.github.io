@@ -221,3 +221,99 @@ updateSlides(); // Initialize first slide
 
 
 
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Get DOM elements
+  const buyNowBtn = document.getElementById('buyNowBtn');
+  const popupOverlay = document.getElementById('popupOverlay');
+  const popupCloseBtn = document.getElementById('popupCloseBtn');
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const addToCartBtn = document.querySelector('.add-to-cart');
+  const confirmBuyBtn = document.querySelector('.confirm-buy');
+  
+  // Product data
+  const product = {
+    title: "Pokémon GO Fest 2025: Global Ticket",
+    description: "A special one-time-only ticket to Pokémon GO Fest 2025 Global event, providing exclusive access and rewards.",
+    price: "₱439.00",
+    imageUrl: "https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-dev-assets%2Fpgo%2Fsku_assets%2Fweb-boost-box-1223.png&w=256&q=75"
+  };
+
+  // Function to disable page scrolling and interaction
+  function disablePageInteraction() {
+    document.body.style.overflow = 'hidden';
+    document.body.style.pointerEvents = 'none';
+    popupOverlay.style.pointerEvents = 'auto';
+  }
+
+  // Function to enable page scrolling and interaction
+  function enablePageInteraction() {
+    document.body.style.overflow = 'auto';
+    document.body.style.pointerEvents = 'auto';
+  }
+
+  // Show popup when Buy Now is clicked
+  buyNowBtn.addEventListener('click', function() {
+    // Update popup content with product data
+    document.querySelector('.popup-title').textContent = product.title;
+    document.querySelector('.popup-description').textContent = product.description;
+    document.querySelector('.popup-price').textContent = `Price: ${product.price}`;
+    
+    // Create or update popup image
+    let popupImage = document.querySelector('.popup-image');
+    if (!popupImage) {
+      popupImage = document.createElement('img');
+      popupImage.className = 'popup-image';
+      document.querySelector('.popup-content').insertBefore(popupImage, document.querySelector('.popup-title'));
+    }
+    popupImage.src = product.imageUrl;
+    popupImage.alt = product.title;
+    
+    popupOverlay.classList.add('active');
+    disablePageInteraction();
+  });
+
+  // Close popup when X button is clicked
+  popupCloseBtn.addEventListener('click', function() {
+    popupOverlay.classList.remove('active');
+    enablePageInteraction();
+  });
+
+  // Close popup when clicking outside content
+  popupOverlay.addEventListener('click', function(e) {
+    if (e.target === popupOverlay) {
+      popupOverlay.classList.remove('active');
+      enablePageInteraction();
+    }
+  });
+
+  // Tab functionality - disabled when popup is open
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      if (!popupOverlay.classList.contains('active')) {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      }
+    });
+  });
+
+  // Add to Cart confirmation
+  addToCartBtn.addEventListener('click', function() {
+    if (confirm(`Add "${product.title}" to your cart for ${product.price}?`)) {
+      alert(`${product.title} has been added to your cart!`);
+      popupOverlay.classList.remove('active');
+      enablePageInteraction();
+    }
+  });
+
+  // Buy Now confirmation
+  confirmBuyBtn.addEventListener('click', function() {
+    if (confirm(`Confirm purchase of "${product.title}" for ${product.price}?`)) {
+      alert(`Thank you for purchasing ${product.title}! Your items will be delivered to your account shortly.`);
+      popupOverlay.classList.remove('active');
+      enablePageInteraction();
+    }
+  });
+});

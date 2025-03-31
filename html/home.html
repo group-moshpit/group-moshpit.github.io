@@ -15,7 +15,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/home.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
@@ -40,13 +40,15 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">Code Redemption</a>
+                  <a class="nav-link" href="code_redempt.html">Code Redemption</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Event Ticketing</a>
+                  <a class="nav-link" href="https://tickets.nianticlabs.com/events/#/login?returnUrl=%2Feventlisting&appId=pgo">Event Ticketing</a>
               </li>
-              <li class="nav-item"><a class="nav-link" href="#">Sign In</a></li>
-            </ul>
+              <li class="nav-item">
+                  <a class="nav-link" href="#" id="authLink">Sign In</a>
+              </li>
+          </ul>
           </div>
         </div>
       </nav>
@@ -61,7 +63,7 @@
           offers. Don't miss out on special discounts!
         </p>
         <div class="hero-buttons">
-          <a href="#" class="btn primary">Shop Now</a>
+          <a href="store.html" class="btn primary">Shop Now</a>
           <a href="#" class="btn secondary">Learn More</a>
         </div>
       </div>
@@ -138,45 +140,73 @@
     <div id="accessBar" class="access-bar">
       <a href="#featured">Featured</a>
       <a href="#hero">Events</a>
-      <a href="#poke-coins">Store</a>
-      <a href="#daily-bundles">Cart</a>
+      <a href="store.html">Store</a>
+      <a href="cart.html">Cart</a>
       <a href="transaction.html">Transaction History</a>
       <button id="toggleSidebar" class="icon-button">
         <img src="/elements/circle_logo.png" alt="Menu" />
       </button>
     </div>
 
-    <!-- Feature Section -->
-    <section id="featured" class="feature-section">
+    <!-- Featured Section -->
+    <section class="feature-section">
       <div class="feature-card">
-        <div class="feature-image">
-          <img
-            src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-dev-assets%2Fpgo%2Fsku_assets%2Fweb-boost-box-1223.png&w=256&q=75"
-            alt="Featured Product"
-          />
-        </div>
-        <div class="feature-content">
-          <span class="feature-badge">FEATURED</span>
-          <h2>Exclusive Adventure Box</h2>
-          <p>
-            Get a special bundle containing raid passes, incense, and lucky
-            eggs!
-          </p>
-          <div class="feature-icons">
-            <img src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-rel-assets%2Fpgo%2Fsku_assets%2Fitem_event_ticket_07.png&w=48&q=75" alt="">
-            <img src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-rel-assets%2Fpgo%2Fsku_assets%2Fitem_event_ticket_08.png&w=48&q=75" alt="">
-            <img src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-rel-assets%2Fpgo%2Fsite_assets%2Fvirtual-currency.png&w=48&q=75" alt="">
+          <div class="feature-image">
+              <img src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-dev-assets%2Fpgo%2Fsku_assets%2Fweb-boost-box-1223.png&w=256&q=75" alt="Featured Product">
           </div>
-          <div class="feature-price">₱599.00</div>
-          <button class="btn buy-btn">Buy Now</button>
-        </div>
+          <div class="feature-content">
+              <span class="feature-badge">FEATURED</span>
+              <h2>Pokémon GO Fest 2025: Global Ticket</h2>
+              <p>A special one-time-only ticket to Pokémon GO Fest 2025 Global event, providing exclusive access and rewards.</p>
+              <div class="feature-icons">
+                  <img src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-rel-assets%2Fpgo%2Fsku_assets%2Fitem_event_ticket_07.png&w=48&q=75" alt="Ticket">
+                  <img src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-rel-assets%2Fpgo%2Fsku_assets%2Fitem_event_ticket_08.png&w=48&q=75" alt="Rewards">
+                  <img src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-rel-assets%2Fpgo%2Fsite_assets%2Fvirtual-currency.png&w=48&q=75" alt="Currency">
+              </div>
+              <div class="feature-price">₱499.00</div>
+              <button class="btn buy-btn" id="buyNowBtn">Buy Now</button>
+          </div>
       </div>
-    </section>
+  </section>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="popupOverlay">
+      <div class="popup-content">
+          <button class="popup-close" id="popupCloseBtn">&times;</button>
+          <h2 class="popup-title">Pokémon GO Fest 2025: Global Ticket</h2>
+          <p class="popup-description">
+              A special one-time-only ticket to Pokémon GO Fest 2025 Global event, 
+              providing exclusive access and rewards.
+          </p>
+          <div class="popup-price">Price: ₽439.00</div>
+          <div class="popup-buttons">
+              <button class="popup-btn add-to-cart">Add to Cart</button>
+              <button class="popup-btn confirm-buy">Buy Now</button>
+          </div>
+      </div>
+  </div>
 
     <!-- New Button Outside the Container -->
     <section class="store-button-container">
-      <button class="btn store-btn">Go to Main Store</button>
+      <a href="store.html"><button class="btn store-btn">Go to Main Store</button></a>
     </section>
+
+    <!-- /* Signed in version */ -->
+
+    <!-- Signed In Content (hidden by default) -->
+    <div id="signedInContent" style="display: none;">
+      <section class="welcome-section">
+          <div class="container text-center py-5">
+              <h2>Welcome back, <span id="usernameDisplay"></span>!</h2>
+              <p>Ready to continue your Pokémon journey?</p>
+              <div class="d-flex justify-content-center gap-3 mt-4">
+                  <a href="profile.html" class="btn btn-primary">View Profile</a>
+                  <a href="#" class="btn btn-outline-primary">Continue Shopping</a>
+              </div>
+          </div>
+      </section>
+    </div>
+
 
     <footer class="footer">
       <div class="footer-container">
@@ -251,5 +281,33 @@
     </footer>
 
     <script src="/javascript/home.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          const authLink = document.getElementById('authLink');
+          const user = JSON.parse(localStorage.getItem('currentUser'));
+          
+          if (user) {
+              // User is logged in
+              authLink.textContent = 'Profile';
+              authLink.href = 'profile.html';
+              
+              // Add logout functionality
+              const logoutItem = document.createElement('li');
+              logoutItem.className = 'nav-item';
+              logoutItem.innerHTML = '<a class="nav-link" href="#" id="logoutLink">Sign Out</a>';
+              document.querySelector('.navbar-nav').appendChild(logoutItem);
+              
+              document.getElementById('logoutLink').addEventListener('click', function(e) {
+                  e.preventDefault();
+                  localStorage.removeItem('currentUser');
+                  window.location.href = 'home.html';
+              });
+          } else {
+              // User is not logged in
+              authLink.textContent = 'Sign In';
+              authLink.href = 'signin.html';
+          }
+      });
+  </script>
   </body>
 </html>

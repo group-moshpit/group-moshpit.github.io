@@ -10,27 +10,38 @@
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="/elements/nav_logo.png" 
-                         alt="Moshpit Go Logo" class="logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Code Redemption</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Event Ticketing</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Sign In</a></li>
-                    </ul>
-                </div>
+   <!-- Navigation Bar (signed-in version) -->
+   <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://i.ibb.co/qLGMGFzL/final-3.png" alt="Moshpit Go Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">
+                            <img src="https://cdn-icons-png.flaticon.com/512/69/69962.png" alt="Home" class="nav-icon"> Home Page
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="store.html">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2697/2697432.png" alt="Store" class="nav-icon"> Store
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">
+                            <img src="https://cdn-icons-png.flaticon.com/512/60/60992.png" alt="Cart" class="nav-icon"> Cart
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
    <!-- Transactions Section -->
 <div class="transaction-container mt-5">
@@ -64,7 +75,7 @@
 
   <!-- Return to Home Button -->
     <div class="text-center my-4">
-        <a href="index.html" class="btn btn-secondary return-home-btn">🏠 Return to Home</a>
+        <a href="home.html" class="btn btn-secondary return-home-btn">🏠 Return to Home</a>
     </div>
 
     <footer class="footer">
@@ -121,5 +132,33 @@
 
     
     <script src="/javascript/transact.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const authLink = document.getElementById('authLink');
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (user) {
+                // User is logged in
+                authLink.textContent = 'Profile';
+                authLink.href = 'profile.html';
+                
+                // Add logout functionality
+                const logoutItem = document.createElement('li');
+                logoutItem.className = 'nav-item';
+                logoutItem.innerHTML = '<a class="nav-link" href="#" id="logoutLink">Sign Out</a>';
+                document.querySelector('.navbar-nav').appendChild(logoutItem);
+                
+                document.getElementById('logoutLink').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.removeItem('currentUser');
+                    window.location.href = 'index.html';
+                });
+            } else {
+                // User is not logged in
+                authLink.textContent = 'Sign In';
+                authLink.href = 'signin.html';
+            }
+        });
+    </script>
 </body>
 </html>

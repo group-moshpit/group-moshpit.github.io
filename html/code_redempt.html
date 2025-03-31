@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon GO Code Redemption</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/code_redempt.css">
+</head>
+<body>
+    <header>
+        <img src="/elements/nav_logo.png" alt="Pokémon GO" class="logo">
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <img src="https://www.freeiconspng.com/uploads/pokeball-pokemon-ball-png-images-5.png" alt="Pokéball" class="pokeball-decoration pokeball-1">
+            <img src="https://www.freeiconspng.com/uploads/pokeball-pokemon-ball-png-images-5.png" alt="Pokéball" class="pokeball-decoration pokeball-2">
+            
+            <h1>REDEEM YOUR CODE</h1>
+            <p class="subtitle">Enter your promo code below to receive special in-game rewards</p>
+            
+            <form class="redeem-form" id="redeemForm">
+                <div class="input-group">
+                    <label for="code">ENTER PROMO CODE</label>
+                    <input 
+                        type="text" 
+                        id="code" 
+                        class="code-input" 
+                        placeholder="XXXX-XXXX-XXXX-XXXX" 
+                        maxlength="19"
+                        required
+                    >
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">REDEEM NOW</button>
+                
+                <div class="result-message" id="resultMessage"></div>
+            </form>
+            
+            <div class="rewards-preview">
+                <h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                    </svg>
+                    POSSIBLE REWARDS
+                </h3>
+                <div class="rewards-grid">
+                    <div class="reward-item">
+                        <img src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-stg-assets%2Fpgo%2Fsku_assets%2Fbundle.general.remotebox.small.1.png&w=384&q=75"  alt="Product 1" alt="Poké Ball" class="reward-icon">
+                        <span class="reward-name">Ultra Raid Box</span>
+                        <span class="reward-quantity">x10</span>
+                    </div>
+                    <div class="reward-item">
+                        <img src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-stg-assets%2Fpgo%2Fsku_assets%2Fbundle.general.adventure.1.png&w=384&q=75" alt="Potion" class="reward-icon">
+                        <span class="reward-name">Power Up Ticket Ultra Ticket Box</span>
+                        <span class="reward-quantity">x5</span>
+                    </div>
+                    <div class="reward-item">
+                        <img src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-rel-assets%2Fpgo%2Fsku_assets%2Fbundle.general1.rocket.1.png&w=384&q=75" alt="Rare Candy" class="reward-icon">
+                        <span class="reward-name">GO Rocket Box</span>
+                        <span class="reward-quantity">x3</span>
+                    </div>
+                    <div class="reward-item">
+                        <img src="https://pokemongohub.net/wp-content/uploads/2017/08/EggIncubatorSuper_Empty.png" alt="Great Ball" class="reward-icon">
+                        <span class="reward-name">Super Incubator</span>
+                        <span class="reward-quantity">x5</span>
+                    </div>
+                    <div class="reward-item">
+                        <img src="https://img.rankedboost.com/wp-content/uploads/2016/08/Pokemon-Go-Revive.png" alt="Revive" class="reward-icon">
+                        <span class="reward-name">Max Revive x6</span>
+                        <span class="reward-quantity">x3</span>
+                    </div>
+                    <div class="reward-item">
+                        <img src="https://storage.googleapis.com/platform-webstore-rel-assets/pgo/sku_assets/coin-bundle-small_v2.png" alt="Stardust" class="reward-icon">
+                        <span class="reward-name">PokéCoins</span>
+                        <span class="reward-quantity">x1000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="store-button-container">
+      <a href="home.html"><button class="btn store-btn">🏠 Return to Home</button></a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-links">
+            <div class="footer-column">
+              <a href="#">Pokémon GO Live</a>
+              <a href="#">Leaderboard</a>
+              <a href="#">Events</a>
+              <a href="#">News</a>
+            </div>
+            <div class="footer-column">
+              <a href="#">Support</a>
+              <a href="#">Code Redemption</a>
+              <a href="#">Community Day Map</a>
+            </div>
+          </div>
+    
+          <div class="footer-logo">
+            <img
+              src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-rel-assets%2Fpgo%2Fsite_assets%2Ftpc-logo.png&w=256&q=75"
+              alt="Your Logo"
+            />
+            <img
+              src="https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-rel-assets%2Fpgo%2Fsite_assets%2Fniantic-logo.png&w=128&q=75"
+              alt="Your Logo"
+            />
+            <img src="/elements/nav_logo.png" alt="Your Logo" />
+          </div>
+    
+          <div class="footer-social">
+            <a href="#"><img src="/elements/youtube.png" alt="YouTube" /></a>
+            <a href="#"><img src="/elements/facebook.png" alt="Facebook" /></a>
+            <a href="#"><img src="/elements/instagram.png" alt="Instagram" /></a>
+            <a href="#"><img src="/elements/tiktok.png" alt="TikTok" /></a>
+          </div>
+        </div>
+    
+        <div class="footer-divider"></div>
+    
+        <div class="footer-info">
+          <p>
+            "for educational purposes only and no copyright infringement is
+            intended."
+          </p>
+          <p>
+            Pokémon GO is playable in multiple languages including English,
+            French, German, Italian, Russian, Japanese, Spanish, Traditional
+            Chinese, Korean, Thai, Brazilian Portuguese, Turkish, and Indonesian.
+          </p>
+          <p>
+            &copy;2023 Niantic, Inc. &copy;2023 Pokémon. &copy;1995-2023 Nintendo
+            / Creatures Inc. / GAME FREAK inc. Pokémon and Pokémon character names
+            are trademarks of Nintendo.
+          </p>
+          <p>
+            Apple, Google Play, and other trademarks mentioned are properties of
+            their respective owners.
+          </p>
+          <p>Please be aware of your surroundings and play safely.</p>
+        </div>
+    
+        <div class="footer-links bottom-links">
+          <a href="#">Terms of Service</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Copyright Policy</a>
+          <a href="#">Player Guidelines</a>
+        </div>
+    
+        <div class="footer-language">
+          <button class="language-btn">🌍 English ▼</button>
+        </div>
+      </footer>
+    
+
+    <script src="/javascript/code_redempt.js"></script>
+</body>
+</html>

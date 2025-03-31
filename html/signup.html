@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon GO - Sign Up</title>
+    <link rel="stylesheet" href="/css/sign-in-out.css">
+</head>
+<body>
+    <div class="auth-container">
+        <img src="/elements/nav_logo.png" alt="Pokémon GO Logo" class="logo">
+        <h1>Create Account</h1>
+        
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message" id="email-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <div class="error-message" id="password-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <div class="error-message" id="confirm-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="ign">In-Game Name</label>
+                <input type="text" id="ign" name="ign" required>
+                <div class="error-message" id="ign-error"></div>
+            </div>
+            
+            <div class="form-group team-selection">
+                <label>Choose Your Team:</label>
+                <div class="team-options">
+                    <label class="team-option valor">
+                        <input type="radio" name="team" value="valor" checked>
+                        <img src="/elements/valor.png" alt="Valor">
+                    </label>
+                    <label class="team-option mystic">
+                        <input type="radio" name="team" value="mystic">
+                        <img src="/elements/mystic.png" alt="Mystic">
+                    </label>
+                    <label class="team-option instinct">
+                        <input type="radio" name="team" value="instinct">
+                        <img src="/elements/instinct.png" alt="Instinct">
+                    </label>
+                </div>
+            </div>
+            
+            <button type="submit">Sign Up</button>
+            
+            <div class="auth-footer">
+                <p>Already have an account? <a href="signin.html">Sign In</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            resetErrors();
+            
+            // Get form values
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const ign = document.getElementById('ign').value.trim();
+            const team = document.querySelector('input[name="team"]:checked').value;
+            
+            // Validation
+            let isValid = true;
+            
+            if (!validateEmail(email)) {
+                showError('email-error', 'Invalid email address');
+                isValid = false;
+            }
+            
+            if (password.length < 6) {
+                showError('password-error', 'Password must be 6+ characters');
+                isValid = false;
+            }
+            
+            if (password !== confirmPassword) {
+                showError('confirm-error', 'Passwords do not match');
+                isValid = false;
+            }
+            
+            if (ign.length < 3) {
+                showError('ign-error', 'IGN must be 3+ characters');
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Check if email already exists
+            const users = JSON.parse(localStorage.getItem('pokemonGoUsers')) || [];
+            if (users.some(u => u.email === email)) {
+                showError('email-error', 'Email already registered');
+                return;
+            }
+            
+            // Create new user
+            const newUser = {
+                email,
+                password,
+                ign,
+                team,
+                playerId: generatePlayerId(),
+                joinDate: new Date().toLocaleDateString(),
+                level: 1,
+                coins: 100
+            };
+            
+            // Save user
+            users.push(newUser);
+            localStorage.setItem('pokemonGoUsers', JSON.stringify(users));
+            localStorage.setItem('currentUser', JSON.stringify(newUser));
+
+            window.location.href = 'home.html';;
+        });
+        
+        function generatePlayerId() {
+            return Array.from({length: 3}, () => 
+                Math.floor(1000 + Math.random() * 9000)
+            ).join(' ');
+        }
+        
+        // Helper functions (same as sign in page)
+        function resetErrors() {
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.textContent = '';
+                el.style.display = 'none';
+            });
+        }
+        
+        function showError(id, message) {
+            const el = document.getElementById(id);
+            el.textContent = message;
+            el.style.display = 'block';
+        }
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>

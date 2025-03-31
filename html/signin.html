@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon GO - Sign In</title>
+    <link rel="stylesheet" href="/css/sign-in-out.css">
+</head>
+<body>
+    <div class="auth-container">
+        <img src="/elements/nav_logo.png" alt="Pokémon GO Logo" class="logo">
+        <h1>Sign In</h1>
+        
+        <form id="signinForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message" id="email-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <div class="error-message" id="password-error"></div>
+            </div>
+            
+            <button type="submit">Sign In</button>
+            
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+                <div class="error-message" id="auth-error"></div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset errors
+            resetErrors();
+            
+            // Get form values
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            
+            // Basic validation
+            let isValid = true;
+            
+            if (!validateEmail(email)) {
+                showError('email-error', 'Please enter a valid email');
+                isValid = false;
+            }
+            
+            if (password.length < 6) {
+                showError('password-error', 'Password must be at least 6 characters');
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Check if user exists
+            const users = JSON.parse(localStorage.getItem('pokemonGoUsers')) || [];
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            // In the signinForm submit handler
+            if (user) {
+            // Store current user session
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                window.location.href = 'home.html'; // Changed from profile.html to index.html
+            } else {
+                showError('auth-error', 'Account not found. Please sign up.');
+            }
+        });
+        
+        function resetErrors() {
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.textContent = '';
+                el.style.display = 'none';
+            });
+        }
+        
+        function showError(id, message) {
+            const el = document.getElementById(id);
+            el.textContent = message;
+            el.style.display = 'block';
+        }
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>
