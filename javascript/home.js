@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const product = {
     title: "Pokémon GO Fest 2025: Global Ticket",
     description: "A special one-time-only ticket to Pokémon GO Fest 2025 Global event, providing exclusive access and rewards.",
-    price: "₱439.00",
+    price: "₱499.00",
     imageUrl: "https://store.pokemongolive.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fplatform-webstore-dev-assets%2Fpgo%2Fsku_assets%2Fweb-boost-box-1223.png&w=256&q=75"
   };
 
